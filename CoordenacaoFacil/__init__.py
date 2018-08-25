@@ -1,5 +1,9 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-from CoordenacaoFacil.controllers import University
+@app.route("/")
+def index():
+    return render_template("student.html")
+
+from CoordenacaoFacil.controllers import UniversityController
