@@ -11,6 +11,11 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/abstracts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/teachers.js') }}"></script>
+
+
   </head>
   <body>
     <!-- menu -->
@@ -244,5 +249,9 @@
       </div>
 
     </div>
+
+    {% include "modals/teachers.html" %}
+    {% include "modals/abstracts.html" %}
+
   </body>
 </html>
