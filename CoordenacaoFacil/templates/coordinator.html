@@ -213,17 +213,19 @@
             </thead>
 
             <tbody>
-              {% if abtracts %}
+              {% if abstracts %}
                 {% for abstract in abstracts %}
                   <tr>
                     <td>{{ abstract.code }}</td>
                     <td>{{ abstract.name }}</td>
-                    <rd>{{ abstract.teacher }}</rd>
+                    <td>{{ abstract.teacher }}</td>
                     <td><i class="material-icons">edit</i></td>
                     <td><i class="material-icons">remove</i></td>
                   </tr>
                 {% endfor %}
               {% endif %}
+
+
             </tbody>
           </table>
 

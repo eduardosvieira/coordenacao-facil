@@ -10,11 +10,13 @@ from CoordenacaoFacil.controllers import UniversityController
 from CoordenacaoFacil.controllers import CourseController
 from CoordenacaoFacil.controllers import CoordinatorController
 from CoordenacaoFacil.controllers import TeacherController
+from CoordenacaoFacil.controllers import AbstractController
 
 from CoordenacaoFacil.models.University import University
 from CoordenacaoFacil.models.Course import Course
 from CoordenacaoFacil.models.Coordinator import Coordinator
 from CoordenacaoFacil.models.Teacher import Teacher
+from CoordenacaoFacil.models.Abstract import Abstract
 
 @app.route("/administrator/")
 def admin():
@@ -28,5 +30,6 @@ def admin():
 @app.route("/coordinator/")
 def coordinator():
     teachers = Teacher().getAllTeachers()
+    abstracts = Abstract().getAllAbstracts()
 
-    return render_template("coordinator.html", teachers=teachers)
+    return render_template("coordinator.html", teachers=teachers, abstracts=abstracts)
