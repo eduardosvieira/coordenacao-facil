@@ -10,7 +10,7 @@ def create_teacher():
     code = request.form.get("code")
     course = request.form.get("course") #Depois substituir para objeto Coordenador
 
-    teacher = teacher(name=name, code=code, course=course)
+    teacher = Teacher(name=name, code=code, course=course)
 
     teacher.createTeacher(teacher)
 
