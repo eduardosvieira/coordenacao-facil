@@ -21,6 +21,7 @@
 
     <script src="{{ url_for('static', filename='js/universities.js') }}"></script>
     <script src="{{ url_for('static', filename='js/courses.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/coordinators.js') }}"></script>
 
 </head>
   <body>
@@ -115,39 +116,27 @@
           <table>
             <thead>
               <tr>
-                  <th>Nome</th>
-                  <th>Código</th>
-                  <th>Curso</th>
-                  <th>Editar</th>
-                  <th>Remover</th>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Curso</th>
+                <th>Editar</th>
+                <th>Remover</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td>Eduardo</td>
-                <td>2016003670</td>
-                <td>Ciência da Computação</td>
-                <td><i class="material-icons">edit</i></td>
-                <td><i class="material-icons">remove</i></td>
+              {% if coordinators %}
+                {% for coordinator in coordinators %}
+                  <tr>
+                    <td>{{ coordinator.code }}</td>
+                    <td>{{ coordinator.name }}</td>
+                    <td>{{ coordinator.course }}</td>
+                    <td><i class="material-icons">edit</i></td>
+                    <td><i class="material-icons">remove</i></td>
+                  </tr>
+                {% endfor %}
+              {% endif %}
 
-              </tr>
-              <tr>
-                <td>Eduardo</td>
-                <td>2016003670</td>
-                <td>Ciência da Computação</td>
-                <td><i class="material-icons">edit</i></td>
-                <td><i class="material-icons">remove</i></td>
-
-              </tr>
-              <tr>
-                <td>Eduardo</td>
-                <td>2016003670</td>
-                <td>Ciência da Computação</td>
-                <td><i class="material-icons">edit</i></td>
-                <td><i class="material-icons">remove</i></td>
-
-              </tr>
             </tbody>
           </table>
 
@@ -155,24 +144,23 @@
       </div>
 
 
-  <div class="fixed-action-btn">
-    <a class="btn-floating btn-large red">
-      <i class="large material-icons">mode_edit</i>
-    </a>
-    <ul>
-      <li><a href="#modal-create-university" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-      <li><a href="#modal-create-course" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-    </ul>
-  </div>
-
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">mode_edit</i>
+      </a>
+      <ul>
+        <li><a href="#modal-create-university" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+        <li><a href="#modal-create-course" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+        <li><a href="#modal-create-coordinator" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+        <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+      </ul>
+    </div>
 
     </div>
 
     {% include 'modals/universities.html' %}
     {% include 'modals/courses.html' %}
-
+    {% include 'modals/coordinators.html' %}
 
   </body>
 </html>

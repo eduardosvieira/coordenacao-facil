@@ -8,13 +8,16 @@ db = client.cfdb
 
 from CoordenacaoFacil.controllers import UniversityController
 from CoordenacaoFacil.controllers import CourseController
+from CoordenacaoFacil.controllers import CoordinatorController
 
 from CoordenacaoFacil.models.University import University
 from CoordenacaoFacil.models.Course import Course
+from CoordenacaoFacil.models.Coordinator import Coordinator
 
 @app.route("/administrator/")
 def admin():
     universities = University().getAllUniversities()
     courses = Course().getAllCourses()
+    coordinators = Coordinator().getAllCoordinators()
 
-    return render_template("administrator.html", universities=universities, courses=courses)
+    return render_template("administrator.html", universities=universities, courses=courses, coordinators=coordinators)
