@@ -16,14 +16,15 @@ $(document).ready(function(){
 
   $('.fixed-action-btn').floatingActionButton();
 
-  $("#btnCreateUniversity").on("click", function(event){
-    var name = $("#university-name").val();
-    var code = $("#university-code").val();
+  $("#btnCreateCourse").on("click", function(event){
+    var name = $("#course-name").val();
+    var code = $("#course-code").val();
+    var coordinator = $("#course-coordinator").val();
 
     $.ajax({
-      url: URL + "/app/universities/",
+      url: URL + "/app/courses/",
       type: "POST",
-      data: {"name": name, "code": code}
+      data: {"name": name, "code": code, "coordinator": coordinator}
     });
   });
 });

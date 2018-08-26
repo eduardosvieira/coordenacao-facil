@@ -16,12 +16,12 @@ class University():
 
         return True
 
-    def getAllUniversities(self, university_id=0):
-        universities = db.universities.find({"_id": ObjectId(university_id)})
+    def getAllUniversities(self):
+        universities = db.universities.find({})
 
         return universities
 
-    def getUniversityById(self, university_id=0):
+    def getUniversityById(self, university_id):
         university = db.universities.find_one({"_id": ObjectId(university_id)})
 
         return university

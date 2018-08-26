@@ -20,6 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
     <script src="{{ url_for('static', filename='js/universities.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/courses.js') }}"></script>
 
 </head>
   <body>
@@ -46,32 +47,24 @@
           <table>
             <thead>
               <tr>
-                  <th>Nome</th>
-                  <th>Sigla</th>
-                  <th>Editar</th>
-                  <th>Remover</th>
+                <th>Sigla</th>
+                <th>Nome</th>
+                <th>Editar</th>
+                <th>Remover</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td>Universidade Federal do Maranhão</td>
-                <td>UFMA</td>
-                <td><i class="material-icons">edit</i></td>
-                <td><i class="material-icons">remove</i></td>
-              </tr>
-              <tr>
-                <td>Universidade Federal do Maranhão</td>
-                <td>UFMA</td>
-                <td><i class="material-icons">edit</i></td>
-                <td><i class="material-icons">remove</i></td>
-              </tr>
-              <tr>
-                <td>Universidade Federal do Maranhão</td>
-                <td>UFMA</td>
-                <td><i class="material-icons">edit</i></td>
-                <td><i class="material-icons">remove</i></td>
-              </tr>
+              {% if universities %}
+                {% for university in universities %}
+                  <tr>
+                    <td>{{ university.code }}</td>
+                    <td>{{ university.name }}</td>
+                    <td><i class="material-icons">edit</i></td>
+                    <td><i class="material-icons">remove</i></td>
+                  </tr>
+                {% endfor %}
+              {% endif %}
             </tbody>
           </table>
 
@@ -87,36 +80,26 @@
           <table>
             <thead>
               <tr>
-                  <th>Nome</th>
-                  <th>Sigla</th>
-                  <th>Coordenador</th>
-                  <th>Editar</th>
-                  <th>Remover</th>
+                <th>Sigla</th>
+                <th>Nome</th>
+                <th>Coordenador</th>
+                <th>Editar</th>
+                <th>Remover</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td>Ciência da Computação</td>
-                <td>CP</td>
-                <td>Simara</td>
-                <td><i class="material-icons">edit</i></td>
-                <td><i class="material-icons">remove</i></td>
-              </tr>
-              <tr>
-                <td>Ciência da Computação</td>
-                <td>CP</td>
-                <td>Simara</td>
-                <td><i class="material-icons">edit</i></td>
-                <td><i class="material-icons">remove</i></td>
-              </tr>
-              <tr>
-                <td>Ciência da Computação</td>
-                <td>CP</td>
-                <td>Simara</td>
-                <td><i class="material-icons">edit</i></td>
-                <td><i class="material-icons">remove</i></td>
-              </tr>
+              {% if courses %}
+                {% for course in courses %}
+                  <tr>
+                    <td>{{ course.code }}</td>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.coordinator }}</td>
+                    <td><i class="material-icons">edit</i></td>
+                    <td><i class="material-icons">remove</i></td>
+                  </tr>
+                {% endfor %}
+              {% endif %}
             </tbody>
           </table>
 
@@ -171,12 +154,24 @@
         </div>
       </div>
 
+
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a href="#modal-create-university" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+      <li><a href="#modal-create-course" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
+
+
     </div>
 
-
-    <a href="#modal-create-university" class="modal-trigger btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-
     {% include 'modals/universities.html' %}
+    {% include 'modals/courses.html' %}
 
 
   </body>

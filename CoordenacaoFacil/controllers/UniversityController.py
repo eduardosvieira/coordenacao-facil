@@ -6,7 +6,9 @@ from CoordenacaoFacil.models.University import University
 
 @app.route("/app/universities/", methods=["GET"])
 def get_all_universities():
-    pass
+    universities = University().getAllUniversities()
+
+    return universities
 
 
 @app.route("/app/universities/<university_id>/", methods=["GET"])
