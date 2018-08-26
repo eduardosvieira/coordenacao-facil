@@ -174,32 +174,25 @@
           <table>
             <thead>
               <tr>
-                  <th>Nome</th>
-                  <th>Código</th>
-                  <th>Editar</th>
-                  <th>Remover</th>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Editar</th>
+                <th>Remover</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td>Eduardo</td>
-                <td>2016003670</td>
-                <td><i class="material-icons">search</i></td>
-                <td><i class="material-icons">search</i></td>
-              </tr>
-              <tr>
-                <td>Eduardo</td>
-                <td>2016003670</td>
-                <td><i class="material-icons">search</i></td>
-                <td><i class="material-icons">search</i></td>
-              </tr>
-              <tr>
-                <td>Eduardo</td>
-                <td>2016003670</td>
-                <td><i class="material-icons">search</i></td>
-                <td><i class="material-icons">search</i></td>
-              </tr>
+              {% if teachers %}
+                {% for teacher in teachers %}
+                  <tr>
+                    <td>{{ teacher.code }}</td>
+                    <td>{{ teacher.name }}</td>
+                    <td><i class="material-icons">edit</i></td>
+                    <td><i class="material-icons">remove</i></td>
+                  </tr>
+                {% endfor %}
+              {% endif %}
+
             </tbody>
           </table>
 
@@ -214,36 +207,40 @@
           <table>
             <thead>
               <tr>
-                  <th>Nome</th>
-                  <th>Código</th>
-                  <th>Editar</th>
-                  <th>Remover</th>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Professor</th>
+                <th>Editar</th>
+                <th>Remover</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td>Sistemas Operacionais</td>
-                <td>CP000</td>
-                <td><i class="material-icons">search</i></td>
-                <td><i class="material-icons">search</i></td>
-              </tr>
-              <tr>
-                <td>Sistemas Operacionais</td>
-                <td>CP000</td>
-                <td><i class="material-icons">search</i></td>
-                <td><i class="material-icons">search</i></td>
-              </tr>
-              <tr>
-                <td>Sistemas Operacionais</td>
-                <td>CP000</td>
-                <td><i class="material-icons">search</i></td>
-                <td><i class="material-icons">search</i></td>
-              </tr>
+              {% if abtracts %}
+                {% for abstract in abstracts %}
+                  <tr>
+                    <td>{{ abstract.code }}</td>
+                    <td>{{ abstract.name }}</td>
+                    <rd>{{ abstract.teacher }}</rd>
+                    <td><i class="material-icons">edit</i></td>
+                    <td><i class="material-icons">remove</i></td>
+                  </tr>
+                {% endfor %}
+              {% endif %}
             </tbody>
           </table>
 
         </div>
+      </div>
+
+      <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red">
+          <i class="large material-icons">add</i>
+        </a>
+        <ul>
+          <li><a href="#modal-create-teacher" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+          <li><a href="#modal-create-abstract" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+        </ul>
       </div>
 
     </div>

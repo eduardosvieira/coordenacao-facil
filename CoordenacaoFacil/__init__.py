@@ -21,3 +21,8 @@ def admin():
     coordinators = Coordinator().getAllCoordinators()
 
     return render_template("administrator.html", universities=universities, courses=courses, coordinators=coordinators)
+
+
+@app.route("/coordinator/")
+def coordinator():
+    return render_template("coordinator.html")
