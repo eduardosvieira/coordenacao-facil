@@ -9,10 +9,12 @@ db = client.cfdb
 from CoordenacaoFacil.controllers import UniversityController
 from CoordenacaoFacil.controllers import CourseController
 from CoordenacaoFacil.controllers import CoordinatorController
+from CoordenacaoFacil.controllers import TeacherController
 
 from CoordenacaoFacil.models.University import University
 from CoordenacaoFacil.models.Course import Course
 from CoordenacaoFacil.models.Coordinator import Coordinator
+from CoordenacaoFacil.models.Teacher import Teacher
 
 @app.route("/administrator/")
 def admin():
@@ -25,4 +27,6 @@ def admin():
 
 @app.route("/coordinator/")
 def coordinator():
-    return render_template("coordinator.html")
+    teachers = Teacher().getAllTeachers()
+
+    return render_template("coordinator.html", teachers=teachers)

@@ -1,4 +1,5 @@
-from User import User
+from CoordenacaoFacil.models.User import User
+from CoordenacaoFacil import db
 
 class Teacher(User):
     def __init__(self, id=0, code=0, name="", email="", password="", type="", createdAt="", course=None, university=None):
