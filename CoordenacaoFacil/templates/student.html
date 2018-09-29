@@ -2,24 +2,18 @@
 
 <html lang="pt-br">
   <head>
-    <title>App</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Coordenação Fácil</title>
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    {% include "css.html" %}
   </head>
   <body>
     <!-- menu -->
     <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Coordenação Fácil</a>
+      <div class="nav-wrapper green">
+        <a href="#" class="brand-logo"><img src="{{ url_for('static', filename='icon.png') }}" height="30" width="30" alt="">Coordenação Fácil</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Configurações</a></li>
-          <li><a href="#">Sair</a></li>
+          <li><a href="#"><i class="material-icons right">settings</i>Configurações</a></li>
+          <li><a href="#"><i class="material-icons right">exit_to_app</i>Sair</a></li>
         </ul>
       </div>
     </nav>
