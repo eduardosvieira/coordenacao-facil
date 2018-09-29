@@ -1,0 +1,42 @@
+university
+  get /app/universities/
+  get /app/universities/<university_id>
+  post /app/universities/
+  put /app/universities/<university_id>
+  delete /app/universities/<university_id>
+  
+  
+  
+Course
+  get /app/courses/
+  get /app/courses/<course_id>
+  post /app/courses/
+  put /app/courses/<course_id>
+  delete /app/courses/<course_id>
+  
+
+Coordinator
+  get /app/coordinators/
+  get /app/coordinators/<coordinator_id>
+  post /app/coordinators/
+  put /app/coordinators/<coordinator_id>
+  delete /app/coordinators/<coordinator_id>
+  
+  
+Teacher
+  get /app/teachers/
+  get /app/teachers/<teacher_id>
+  post /app/teachers/
+  put /app/teachers/<teacher_id>
+  delete /app/teachers/<teacher_id>
+  
+  
+Abstract
+  get /app/abstracts/
+  get /app/abstracts/<abstract_id>
+  post /app/abstracts/
+  put /app/abstracts/<abstracts_id>
+  delete /app/abstracts/<abstract_id>
+
+  
+
