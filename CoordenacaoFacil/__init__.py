@@ -26,6 +26,9 @@ def admin():
 
     return render_template("administrator.html", universities=universities, courses=courses, coordinators=coordinators)
 
+@app.route("/student/")
+def student():
+    return render_template("student.html")
 
 @app.route("/coordinator/")
 def coordinator():
