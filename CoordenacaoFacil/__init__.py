@@ -24,6 +24,10 @@ def login():
     return render_template("login/login.html")
 
 
+@app.route("/signup/")
+def signup():
+    return render_template("signup/signup.html")
+
 @app.route("/teacher/")
 def teacher():
     return render_template("teacher.html")
