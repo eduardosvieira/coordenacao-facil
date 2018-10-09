@@ -4,6 +4,7 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 client = MongoClient("mongodb://eduardo:senha@200.137.131.118/cfdb")
+
 db = client.cfdb
 
 from CoordenacaoFacil.controllers import UniversityController

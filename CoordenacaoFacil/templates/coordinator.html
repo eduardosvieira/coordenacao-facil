@@ -11,16 +11,19 @@
   </head>
   <body>
     <!-- menu -->
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Coordenação Fácil</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Configurações</a></li>
-          <li><a href="#">Sair</a></li>
-        </ul>
-      </div>
+    <nav class="nav-extended #212121 grey darken-4">
+     <div class="nav-wrapper">
+       <a class="brand-logo center">Coordenação Fácil</a>
+       <a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+       <ul id = "nav-mobile"  class="right hide-on-med-and-down">
+         <li><a href="#"><i class="material-icons right">exit_to_app</i>Sair</a></li>
+       </ul>
+     </div>
     </nav>
 
+    <ul class="sidenav" id = "mobile-demo">
+     <li><a href="#"><i class="material-icons right">exit_to_app</i>Sair</a></li>
+    </ul>
 
     <!-- container -->
     <div class="container">
@@ -37,6 +40,8 @@
                   <th>Matrícula</th>
                   <th>Status</th>
                   <th>Ver</th>
+                  <th>Aprovar</th>
+                  <th>Recusar</th>
               </tr>
             </thead>
 
@@ -45,19 +50,25 @@
                 <td>Eduardo</td>
                 <td>2016003670</td>
                 <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">thumb_up</i></td>
+                <td><i class="material-icons red-text">thumb_down</i></td>
               </tr>
               <tr>
                 <td>Eduardo</td>
                 <td>2016003670</td>
                 <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">thumb_up</i></td>
+                <td><i class="material-icons red-text">thumb_down</i></td>
               </tr>
               <tr>
                 <td>Eduardo</td>
                 <td>2016003670</td>
                 <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">thumb_up</i></td>
+                <td><i class="material-icons red-text">thumb_down</i></td>
               </tr>
             </tbody>
           </table>
@@ -80,6 +91,9 @@
                   <th>Cadeira Pretendida</th>
                   <th>Status</th>
                   <th>Ver</th>
+                  <th>Aprovar</th>
+                  <th>Recusar</th>
+                  <th>Enviar</th>
               </tr>
             </thead>
 
@@ -90,7 +104,10 @@
                 <td>BICT000 - Sistemas Operacionais</td>
                 <td>CP000 - Sistemas Operacionais I</td>
                 <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">thumb_up</i></td>
+                <td><i class="material-icons red-text">thumb_down</i></td>
+                <td><i class="material-icons red-text">send</i></td>
               </tr>
               <tr>
                 <td>Eduardo</td>
@@ -98,22 +115,16 @@
                 <td>BICT000 - Sistemas Operacionais</td>
                 <td>CP000 - Sistemas Operacionais I</td>
                 <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
-              </tr>
-              <tr>
-                <td>Eduardo</td>
-                <td>2016003670</td>
-                <td>BICT000 - Sistemas Operacionais</td>
-                <td>CP000 - Sistemas Operacionais I</td>
-                <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">thumb_up</i></td>
+                <td><i class="material-icons red-text">thumb_down</i></td>
+                <td><i class="material-icons red-text">send</i></td>
               </tr>
             </tbody>
           </table>
 
         </div>
       </div>
-
 
       <!-- pedidos de monitoria -->
       <div class="card">
@@ -123,7 +134,7 @@
           <table>
             <thead>
               <tr>
-                  <th>Estudante</th>
+                  <th>Nome</th>
                   <th>Matrícula</th>
                   <th>Cadeira</th>
                   <th>Status</th>
@@ -133,28 +144,25 @@
 
             <tbody>
               <tr>
-                <td>Eduardo</td>
+                <td>Eduardo Silva Vieira</td>
                 <td>2016003670</td>
                 <td>BICT000 - Sistemas Operacionais</td>
                 <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
-
+                <td><i class="material-icons red-text">search</i></td>
               </tr>
               <tr>
-                <td>Eduardo</td>
+                <td>Eduardo Silva Vieira</td>
                 <td>2016003670</td>
-                <td>BICT000 - Sistemas Operacionais</td>
+                <td>CP7976 - Sistemas Distribuídos</td>
                 <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
-
+                <td><i class="material-icons red-text">search</i></td>
               </tr>
               <tr>
-                <td>Eduardo</td>
+                <td>Eduardo Silva Vieira</td>
                 <td>2016003670</td>
-                <td>BICT000 - Sistemas Operacionais</td>
-                <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
-
+                <td>CP888 - Algoritmos</td>
+                <td>Finalizado</td>
+                <td><i class="material-icons red-text">search</i></td>
               </tr>
             </tbody>
           </table>
@@ -184,8 +192,8 @@
                   <tr>
                     <td>{{ teacher.code }}</td>
                     <td>{{ teacher.name }}</td>
-                    <td><i class="material-icons">edit</i></td>
-                    <td><i class="material-icons">remove</i></td>
+                    <td><i class="material-icons red-text">edit</i></td>
+                    <td><i class="material-icons red-text">remove</i></td>
                   </tr>
                 {% endfor %}
               {% endif %}
@@ -219,8 +227,8 @@
                     <td>{{ abstract.code }}</td>
                     <td>{{ abstract.name }}</td>
                     <td>{{ abstract.teacher }}</td>
-                    <td><i class="material-icons">edit</i></td>
-                    <td><i class="material-icons">remove</i></td>
+                    <td><i class="material-icons red-text">edit</i></td>
+                    <td><i class="material-icons red-text">remove</i></td>
                   </tr>
                 {% endfor %}
               {% endif %}
@@ -237,8 +245,8 @@
           <i class="large material-icons">add</i>
         </a>
         <ul>
-          <li><a href="#modal-create-teacher" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-          <li><a href="#modal-create-abstract" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+          <li><a href="#modal-create-teacher" class="modal-trigger">Novo Professor</a></li>
+          <li><a href="#modal-create-abstract" class="modal-trigger">Nova Cadeira</a></li>
         </ul>
       </div>
 
