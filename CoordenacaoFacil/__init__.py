@@ -18,6 +18,11 @@ from CoordenacaoFacil.models.Coordinator import Coordinator
 from CoordenacaoFacil.models.Teacher import Teacher
 from CoordenacaoFacil.models.Abstract import Abstract
 
+@app.route("/login/")
+def login():
+    return render_template("login/login.html")
+
+
 @app.route("/administrator/")
 def admin():
     universities = University().getAllUniversities()
