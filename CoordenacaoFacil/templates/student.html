@@ -2,22 +2,28 @@
 
 <html lang="pt-br">
   <head>
-    <title>Coordenação Fácil</title>
+    {% include "heading.html" %}
 
-    {% include "css.html" %}
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
   </head>
   <body>
     <!-- menu -->
-    <nav>
-      <div class="nav-wrapper green">
-        <a href="#" class="brand-logo"><img src="{{ url_for('static', filename='icon.png') }}" height="30" width="30" alt="">Coordenação Fácil</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#"><i class="material-icons right">settings</i>Configurações</a></li>
-          <li><a href="#"><i class="material-icons right">exit_to_app</i>Sair</a></li>
-        </ul>
-      </div>
+    <nav class="nav-extended #212121 grey darken-4">
+     <div class="nav-wrapper">
+       <a class="brand-logo center">Coordenação Fácil</a>
+       <a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+       <ul id = "nav-mobile"  class="right hide-on-med-and-down">
+         <li><a href="#"><i class="material-icons right">settings</i>Configurações</a></li>
+         <li><a href="#"><i class="material-icons right">exit_to_app</i>Sair</a></li>
+       </ul>
+     </div>
     </nav>
 
+    <ul class="sidenav" id = "mobile-demo">
+     <li><a href="#"><i class="material-icons right">settings</i>Configurações</a></li>
+     <li><a href="#"><i class="material-icons right">exit_to_app</i>Sair</a></li>
+    </ul>
 
     <!-- container -->
     <div class="container">
@@ -34,27 +40,37 @@
                   <th>Matrícula</th>
                   <th>Status</th>
                   <th>Ver</th>
+                  <th>Editar</th>
+                  <th>Remover</th>
               </tr>
             </thead>
 
             <tbody>
               <tr>
-                <td>Eduardo</td>
+                <td>Eduardo Silva Vieira</td>
                 <td>2016003670</td>
-                <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
+                <td>Aprovado</td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">edit</i></td>
+                <td><i class="material-icons red-text">delete</i></td>
               </tr>
+
               <tr>
-                <td>Eduardo</td>
+                <td>Eduardo Silva Vieira</td>
                 <td>2016003670</td>
                 <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">edit</i></td>
+                <td><i class="material-icons red-text">delete</i></td>
               </tr>
+
               <tr>
-                <td>Eduardo</td>
+                <td>Eduardo Silva Vieira</td>
                 <td>2016003670</td>
-                <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
+                <td>Negado</td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">edit</i></td>
+                <td><i class="material-icons red-text">delete</i></td>
               </tr>
             </tbody>
           </table>
@@ -76,33 +92,41 @@
                   <th>Cadeira Pretendida</th>
                   <th>Status</th>
                   <th>Ver</th>
+                  <th>Editar</th>
+                  <th>Remover</th>
               </tr>
             </thead>
 
             <tbody>
               <tr>
-                <td>Eduardo</td>
+                <td>Eduardo Silva Vieira</td>
                 <td>2016003670</td>
                 <td>BICT000 - Sistemas Operacionais</td>
                 <td>CP000 - Sistemas Operacionais I</td>
                 <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">edit</i></td>
+                <td><i class="material-icons red-text">delete</i></td>
               </tr>
               <tr>
-                <td>Eduardo</td>
+                <td>Eduardo Silva Vieira</td>
                 <td>2016003670</td>
                 <td>BICT000 - Sistemas Operacionais</td>
                 <td>CP000 - Sistemas Operacionais I</td>
-                <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
+                <td>Aprovado</td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">edit</i></td>
+                <td><i class="material-icons red-text">delete</i></td>
               </tr>
               <tr>
-                <td>Eduardo</td>
+                <td>Eduardo Silva Vieira</td>
                 <td>2016003670</td>
                 <td>BICT000 - Sistemas Operacionais</td>
                 <td>CP000 - Sistemas Operacionais I</td>
-                <td>Em Processamento</td>
-                <td><i class="material-icons">search</i></td>
+                <td>Negado</td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">edit</i></td>
+                <td><i class="material-icons red-text">delete</i></td>
               </tr>
             </tbody>
           </table>
@@ -123,37 +147,48 @@
                   <th>Matrícula</th>
                   <th>Cadeira</th>
                   <th>Status</th>
+                  <th>Ver</th>
                   <th>Baixar</th>
               </tr>
             </thead>
 
             <tbody>
               <tr>
-                <td>Eduardo</td>
+                <td>Eduardo Silva Vieira</td>
                 <td>2016003670</td>
                 <td>BICT000 - Sistemas Operacionais</td>
                 <td>Em Processamento</td>
-                <td><i class="material-icons">get_app</i></td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">get_app</i></td>
               </tr>
               <tr>
-                <td>Eduardo</td>
+                <td>Eduardo Silva Vieira</td>
                 <td>2016003670</td>
-                <td>BICT000 - Sistemas Operacionais</td>
+                <td>CP7976 - Sistemas Distribuídos</td>
                 <td>Em Processamento</td>
-                <td><i class="material-icons">get_app</i></td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">get_app</i></td>
               </tr>
               <tr>
-                <td>Eduardo</td>
+                <td>Eduardo Silva Vieira</td>
                 <td>2016003670</td>
-                <td>BICT000 - Sistemas Operacionais</td>
-                <td>Em Processamento</td>
-                <td><i class="material-icons">get_app</i></td>
+                <td>CP888 - Algoritmos</td>
+                <td>Finalizado</td>
+                <td><i class="material-icons red-text">search</i></td>
+                <td><i class="material-icons red-text">get_app</i></td>
               </tr>
             </tbody>
           </table>
 
         </div>
       </div>
+
+    </div>
+
+    <div class="fixed-action-btn">
+        <a href="#modal-create-account" class="btn-floating btn-large modal-trigger red tooltipped text-white" data-position="left" data-tooltip="Criar nova conta">
+          <i class="material-icons">add</i>
+        </a>
     </div>
   </body>
 </html>

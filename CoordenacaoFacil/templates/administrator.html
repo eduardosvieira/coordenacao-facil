@@ -11,16 +11,19 @@
 </head>
   <body>
     <!-- menu -->
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Coordenação Fácil</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Configurações</a></li>
-          <li><a href="#">Sair</a></li>
-        </ul>
-      </div>
+    <nav class="nav-extended #212121 grey darken-4">
+     <div class="nav-wrapper">
+       <a class="brand-logo center">Coordenação Fácil</a>
+       <a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+       <ul id = "nav-mobile"  class="right hide-on-med-and-down">
+         <li><a href="#"><i class="material-icons right">exit_to_app</i>Sair</a></li>
+       </ul>
+     </div>
     </nav>
 
+    <ul class="sidenav" id = "mobile-demo">
+     <li><a href="#"><i class="material-icons right">exit_to_app</i>Sair</a></li>
+    </ul>
 
     <!-- container -->
     <div class="container">
@@ -46,8 +49,8 @@
                   <tr>
                     <td>{{ university.code }}</td>
                     <td>{{ university.name }}</td>
-                    <td><i class="material-icons">edit</i></td>
-                    <td><i class="material-icons">remove</i></td>
+                    <td><i class="material-icons red-text">edit</i></td>
+                    <td><i class="material-icons red-text">remove</i></td>
                   </tr>
                 {% endfor %}
               {% endif %}
@@ -68,6 +71,7 @@
               <tr>
                 <th>Sigla</th>
                 <th>Nome</th>
+                <th>Universidade</th>
                 <th>Coordenador</th>
                 <th>Editar</th>
                 <th>Remover</th>
@@ -80,9 +84,10 @@
                   <tr>
                     <td>{{ course.code }}</td>
                     <td>{{ course.name }}</td>
-                    <td>{{ course.coordinator }}</td>
-                    <td><i class="material-icons">edit</i></td>
-                    <td><i class="material-icons">remove</i></td>
+                    <th>UFMA</th>
+                    <td>Fulana da Silva</td>
+                    <td><i class="material-icons red-text">edit</i></td>
+                    <td><i class="material-icons red-text">remove</i></td>
                   </tr>
                 {% endfor %}
               {% endif %}
@@ -116,8 +121,8 @@
                     <td>{{ coordinator.code }}</td>
                     <td>{{ coordinator.name }}</td>
                     <td>{{ coordinator.course }}</td>
-                    <td><i class="material-icons">edit</i></td>
-                    <td><i class="material-icons">remove</i></td>
+                    <td><i class="material-icons red-text">edit</i></td>
+                    <td><i class="material-icons red-text">remove</i></td>
                   </tr>
                 {% endfor %}
               {% endif %}
@@ -134,9 +139,9 @@
         <i class="large material-icons">add</i>
       </a>
       <ul>
-        <li><a href="#modal-create-university" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-        <li><a href="#modal-create-course" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-        <li><a href="#modal-create-coordinator" class="modal-trigger btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+        <li><a href="#modal-create-university" class="modal-trigger">Nova Universidade</a></li>
+        <li><a href="#modal-create-course" class="modal-trigger">Novo Curso</a></li>
+        <li><a href="#modal-create-coordinator" class="modal-trigger">Novo Coordenador</a></li>
       </ul>
     </div>
 

@@ -4,6 +4,7 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 client = MongoClient("mongodb://eduardo:senha@200.137.131.118/cfdb")
+
 db = client.cfdb
 
 from CoordenacaoFacil.controllers import UniversityController
@@ -17,6 +18,19 @@ from CoordenacaoFacil.models.Course import Course
 from CoordenacaoFacil.models.Coordinator import Coordinator
 from CoordenacaoFacil.models.Teacher import Teacher
 from CoordenacaoFacil.models.Abstract import Abstract
+
+@app.route("/login/")
+def login():
+    return render_template("login/login.html")
+
+
+@app.route("/signup/")
+def signup():
+    return render_template("signup/signup.html")
+
+@app.route("/teacher/")
+def teacher():
+    return render_template("teacher.html")
 
 @app.route("/administrator/")
 def admin():
