@@ -15,8 +15,6 @@ def get_all_universities():
         i["_id"] = str(i["_id"])
         universities.append(i)
 
-    print(universities)
-
     return jsonify(universities)
 
 
