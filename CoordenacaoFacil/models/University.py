@@ -21,7 +21,7 @@ class University():
 
         return universities
 
-    def getUniversityById(self, university_id):
-        university = db.universities.find_one({"_id": ObjectId(university_id)})
+    def getUniversityByCode(self, code):
+        university = db.universities.find_one({"code": code})
 
         return university

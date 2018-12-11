@@ -19,12 +19,14 @@ $(document).ready(function(){
   $("#btnCreateCourse").on("click", function(event){
     var name = $("#course-name").val();
     var code = $("#course-code").val();
-    var coordinator = $("#course-coordinator").val();
+    var coordinator = $("#coordinator").val();
+    var university = $("#university").val();
+    var createdAt = $("#createdAt").val();
 
     $.ajax({
       url: URL + "/app/courses/",
       type: "POST",
-      data: {"name": name, "code": code, "coordinator": coordinator}
+      data: {"name": name, "code": code, "coordinator": coordinator, "university": university, "createdAt": createdAt}
     });
   });
 });

@@ -4,7 +4,7 @@
   <head>
     {% include "heading.html" %}
 
-    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/signup.js') }}"></script>
 
 </head>
   <body>
@@ -39,9 +39,19 @@
           </div>
 
           <div class="input-field s12 m12 l12">
+            <select name="course">
+              <option value="10">Ciência da Computação</option>
+              <option value="20">Matemática</option>
+            </select>
+            <label for="password">Curso</label>
+          </div>
+
+          <div class="input-field s12 m12 l12">
             <input name="password" id="password" type="password">
             <label for="password">Senha</label>
           </div>
+
+          <input name="createdAt" id="createdAt" type="hidden">
 
         </div>
 

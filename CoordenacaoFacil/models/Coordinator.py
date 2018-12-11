@@ -24,3 +24,8 @@ class Coordinator(User):
         coordinators = db.users.find({})
 
         return coordinators
+
+    def getCoordinatorByCode(self, code):
+        coordinator = db.coordinators.find_one({"code": code})
+
+        return coordinator

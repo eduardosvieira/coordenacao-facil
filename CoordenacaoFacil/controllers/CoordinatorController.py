@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, jsonify
 
 from CoordenacaoFacil import app
 
@@ -19,7 +19,16 @@ def create_coordinator():
 
 @app.route("/app/coordinators/", methods=["GET"])
 def get_all_coordinators():
-    pass
+    result = Coordinator().getAllCoordinators()
+
+    coordinators = []
+
+    for i in Coordinator().getAllCoordinators():
+        #i["_id"] = str(i["_id"])
+        #coordinators.append(i)
+        print(i)
+    #print(coordinators)
+    return jsonify(coordinators)
 
 @app.route("/app/coordinators/<coordinator_id>/", methods=["GET"])
 def get_coordinator(coordinator_id):

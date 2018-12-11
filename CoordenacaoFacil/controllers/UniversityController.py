@@ -1,14 +1,23 @@
-from flask import request
+from flask import request, jsonify
 
 from CoordenacaoFacil import app
 from CoordenacaoFacil.models.University import University
 
-
 @app.route("/app/universities/", methods=["GET"])
 def get_all_universities():
-    universities = University().getAllUniversities()
+    university = University()
 
-    return universities
+    result = university.getAllUniversities()
+
+    universities = []
+
+    for i in result:
+        i["_id"] = str(i["_id"])
+        universities.append(i)
+
+    print(universities)
+
+    return jsonify(universities)
 
 
 @app.route("/app/universities/<university_id>/", methods=["GET"])
