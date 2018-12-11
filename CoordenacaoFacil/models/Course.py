@@ -27,7 +27,7 @@ class Course():
 
         return courses
 
-    def getCourseById(self, course_id):
-        course = db.courses.find_one({"_id": ObjectId(course_id)})
+    def getCourseByCode(self, code):
+        course = db.courses.find_one({"code": code})
 
         return course

@@ -24,6 +24,24 @@ function loadCourses() {
     });
 }
 
+function loadUniversities() {
+  $.ajax({
+      url: URL + "/app/universities/",
+      type: "GET",
+      success: function(data) {
+        var university = $("#university");
+        university.empty();
+
+        for(index in data) {
+          university.append($("<option />").text(data[index]["name"]).attr("value", data[index]["code"]));
+        }
+        $('select').formSelect();
+      },
+      error: function() {
+        console.log("Houve um problema obter universidades.");
+      }
+    });
+}
 
 $(document).ready(function(){
   $('.sidenav').sidenav();
@@ -33,5 +51,6 @@ $(document).ready(function(){
   $("#createdAt").val(new Date());
 
   loadCourses();
+  loadUniversities();
 
 });

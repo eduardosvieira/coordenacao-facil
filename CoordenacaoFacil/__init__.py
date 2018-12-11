@@ -12,6 +12,7 @@ from CoordenacaoFacil.controllers import CourseController
 from CoordenacaoFacil.controllers import CoordinatorController
 from CoordenacaoFacil.controllers import TeacherController
 from CoordenacaoFacil.controllers import AbstractController
+from CoordenacaoFacil.controllers import StudentController
 
 from CoordenacaoFacil.models.University import University
 from CoordenacaoFacil.models.Course import Course
