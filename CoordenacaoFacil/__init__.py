@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session
+from flask import Flask, render_template, session, redirect
 from pymongo import MongoClient
 
 
@@ -38,6 +38,7 @@ def index():
         else:
             return render_template("administrator.html", user=user)
 
+    return redirect("/app/login/")
 
 @app.route("/app/login/")
 def login():

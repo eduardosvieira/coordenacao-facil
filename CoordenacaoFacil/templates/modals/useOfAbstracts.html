@@ -1,0 +1,39 @@
+<!-- modal de criação de cursos -->
+<div id="modal-create-useOfAbstract" class="modal">
+  <div class="modal-content">
+    <span class="modal-title">Novo Pedido de Aproveitamento de Cadeiras</span>
+    <div class="row">
+
+      <div class="input-field s12 m12 l12">
+        <select name="origin" id="origin">
+        </select>
+        <label for="origin">Cadeira Cursada</label>
+      </div>
+
+      <div class="input-field s12 m12 l12">
+        <select name="destiny" id="destiny">
+        </select>
+        <label for="destiny">Cadeira Pretendida</label>
+      </div>
+
+      <div class="input-field s12 m12 l12">
+        <label for="ementa">Ementa</label>
+        <div class="file-field input-field">
+          <div>
+            <input name="ementa" type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </div>
+
+      <input name="createdAt" id="createdAt" type="hidden">
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <a id="btnCreateCourse" class="green modal-action modal-close btn-flat">Criar</a>
+    <a class="red modal-action modal-close btn-flat">Cancelar</a>
+  </div>
+</div>
