@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, session
 from pymongo import MongoClient
 
 
@@ -22,6 +22,22 @@ from CoordenacaoFacil.models.Course import Course
 from CoordenacaoFacil.models.Coordinator import Coordinator
 from CoordenacaoFacil.models.Teacher import Teacher
 from CoordenacaoFacil.models.Abstract import Abstract
+from CoordenacaoFacil.models.Student import Student
+
+@app.route("/app/")
+def index():
+    if "code" in session:
+        user = Student().getUserByCode(session["code"])
+
+        if user["type"] == "student":
+            return render_template("student.html", user=user)
+        elif user["type"] == "coordinator":
+            return render_template("coordinator.html", user=user)
+        elif user["type"] == "teacher":
+            return render_template("teacher.html", user=user)
+        else:
+            return render_template("administrator.html", user=user)
+
 
 @app.route("/app/login/")
 def login():
