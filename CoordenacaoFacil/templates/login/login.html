@@ -9,21 +9,7 @@
 </head>
   <body>
     <!-- menu -->
-    <nav class="nav-extended #212121 grey darken-4">
-     <div class="nav-wrapper">
-       <a class="brand-logo center">Coordenação Fácil</a>
-       <a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-       <ul id = "nav-mobile"  class="right hide-on-med-and-down">
-         <li><a href="#">Entrar</a></li>
-         <li><a href="#">Cadastrar-se</a></li>
-       </ul>
-     </div>
-    </nav>
-
-    <ul class="sidenav" id = "mobile-demo">
-     <li><a href="#">Entrar</a></li>
-     <li><a href="#">Cadastrar-se</a></li>
-    </ul>
+    {% include "login-menu.html" %}
 
     <!-- container -->
     <div class="container">

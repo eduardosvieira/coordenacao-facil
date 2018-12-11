@@ -9,27 +9,13 @@
 </head>
   <body>
     <!-- menu -->
-    <nav class="nav-extended #212121 grey darken-4">
-     <div class="nav-wrapper">
-       <a class="brand-logo center">Coordenação Fácil</a>
-       <a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-       <ul id = "nav-mobile"  class="right hide-on-med-and-down">
-         <li><a href="#">Entrar</a></li>
-         <li><a href="#">Cadastrar-se</a></li>
-       </ul>
-     </div>
-    </nav>
-
-    <ul class="sidenav" id = "mobile-demo">
-     <li><a href="#">Entrar</a></li>
-     <li><a href="#">Cadastrar-se</a></li>
-    </ul>
+    {% include "login-menu.html" %}
 
     <!-- container -->
     <div class="container">
       <h4>Cadastrar-se</h4>
 
-      <form action="" method="POST">
+      <form action="/app/login/" method="POST">
         {% if error %}
           <div class="row">
             <span style="font-weight: bold; color: red;">{{error}}</span>
@@ -57,10 +43,6 @@
             <label for="password">Senha</label>
           </div>
 
-          <div class="input-field s12 m12 l12">
-            <input name="password" id="password" type="password">
-            <label for="password">Confirmar senha</label>
-          </div>
         </div>
 
         <div class="row">
