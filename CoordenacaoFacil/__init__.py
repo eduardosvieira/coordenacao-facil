@@ -3,6 +3,9 @@ from pymongo import MongoClient
 
 
 app = Flask(__name__)
+
+app.config["SECRET_KEY"] = "@eduardo"
+
 client = MongoClient("mongodb://127.0.0.1/cfdb")
 
 db = client.cfdb
