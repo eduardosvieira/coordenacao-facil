@@ -1,18 +1,17 @@
 from CoordenacaoFacil import db
 
 class Abstract():
-    def __init__(self, id=0, name="", code="", teacher=None):
-        self.id = id
-        self.name = name
+    def __init__(self, code="", name="", createAt=""):
         self.code = code
-        self.teacher = teacher
+        self.name = name
+        self.createAt = createAt
 
 
     def createAbstract(self, abstract=None):
         db.abstracts.insert({
-            "name": abstract.name,
             "code": abstract.code,
-            "teacher": abstract.teacher,
+            "name": abstract.name,
+            "createAt": abstract.createAt,
         })
 
         return True

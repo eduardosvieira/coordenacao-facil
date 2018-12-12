@@ -3,18 +3,25 @@ from flask import request
 from CoordenacaoFacil import app
 
 from CoordenacaoFacil.models.Teacher import Teacher
+from CoordenacaoFacil.models.University import University
+from CoordenacaoFacil.models.Course import Course
 
 @app.route("/app/teachers/", methods=["POST"])
 def create_teacher():
     name = request.form.get("name")
+    email = request.form.get("email")
     code = request.form.get("code")
-    course = request.form.get("course") #Depois substituir para objeto Coordenador
+    password = request.form.get("password")
+    createdAt = request.form.get("createdAt")
+    university = University().getUniversityByCode(request.form.get("university"))
+    course = Course().getCourseByCode(request.form.get("course"))
 
-    teacher = Teacher(name=name, code=code, course=course)
+    teacher = Teacher(code=code, name=name, email=email, password=password, createdAt=createdAt, university=university, course=course)
 
-    teacher.createTeacher(teacher)
-
-    return "teacher created!"
+    if teacher.create(teacher):
+        return "teacher created!", 200
+    else:
+        return "Error", 400
 
 
 @app.route("/app/teachers/", methods=["GET"])

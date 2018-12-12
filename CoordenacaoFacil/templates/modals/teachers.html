@@ -4,20 +4,41 @@
   <div class="modal-content">
     <span class="modal-title">Novo Professor</span>
     <div class="row">
-      <div class="input-text">
-        <label for="teacher-name">Nome</label>
+      <div class="input-field s12 m12 l12">
         <input name="teacher-name" id="teacher-name" type="text">
+        <label for="teacher-name">Nome Completo</label>
       </div>
 
-      <div class="input-text">
-        <label for="teacher-code">Código</label>
+      <div class="input-field s12 m12 l12">
+        <input name="teacher-email" id="teacher-email" type="email">
+        <label for="teacher-email">E-mail</label>
+      </div>
+
+
+      <div class="input-field s12 m12 l12">
         <input name="teacher-code" id="teacher-code" type="text">
+        <label for="teacher-code">Matrícula</label>
       </div>
 
-      <div class="input-text">
-        <label for="teacher-course">Curso</label>
-        <input name="teacher-course" id="teacher-course" type="text">
+      <div class="input-field s12 m12 l12">
+        <select name="teacher-university" id="teacher-university">
+        </select>
+        <label for="teacher-university">Universidade</label>
       </div>
+
+      <div class="input-field s12 m12 l12">
+        <select name="teacher-course" id="teacher-course">
+        </select>
+        <label for="teacher-course">Curso</label>
+      </div>
+
+      <div class="input-field s12 m12 l12">
+        <input name="teacher-password" id="teacher-password" type="password">
+        <label for="teacher-password">Senha</label>
+      </div>
+
+      <input name="teacher-createdAt" id="teacher-createdAt" type="hidden">
+
     </div>
   </div>
 
