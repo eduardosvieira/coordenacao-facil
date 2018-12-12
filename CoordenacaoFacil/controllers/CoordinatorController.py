@@ -3,18 +3,27 @@ from flask import request, jsonify
 from CoordenacaoFacil import app
 
 from CoordenacaoFacil.models.Coordinator import Coordinator
+from CoordenacaoFacil.models.University import University
+from CoordenacaoFacil.models.Course import Course
 
 @app.route("/app/coordinators/", methods=["POST"])
 def create_coordinator():
     name = request.form.get("name")
+    email = request.form.get("email")
     code = request.form.get("code")
-    course = request.form.get("course") #Depois substituir para objeto Course
+    password = request.form.get("password")
+    createdAt = request.form.get("createdAt")
+    university = University().getUniversityByCode(request.form.get("university"))
+    course = Course().getCourseByCode(request.form.get("course"))
 
-    coordinator = Coordinator(name=name, code=code, course=course)
+    print(email)
 
-    coordinator.createCoordinator(coordinator)
+    coordinator = Coordinator(code=code, name=name, email=email, password=password, createdAt=createdAt, university=university, course=course)
 
-    return "coordinator created!"
+    if coordinator.createCoordinator(coordinator):
+        return "coordinator created!", 200
+    else:
+        return "Error", 400
 
 
 @app.route("/app/coordinators/", methods=["GET"])

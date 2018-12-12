@@ -1,27 +1,34 @@
-from CoordenacaoFacil.models.User import User
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from CoordenacaoFacil import db
 
-
-class Coordinator(User):
-    def __init__(self, id=0, code=0, name="", email="", password="", type="", createdAt="", course=None, university=None):
-        super().__init__(id=id, code=code, name=name, email=email, password=password, type=type, createdAt=createdAt)
-        self.course = course
+class Coordinator():
+    def __init__(self, code=0, name="", email="", password="", createdAt="", course=None, university=None):
+        self.code = code
+        self.name = name
+        self.email = email
+        self.password = password
         self.university = university
-
+        self.course = course
+        self.createdAt = createdAt
+        self.type = "coordinator"
 
     def createCoordinator(self, coordinator=None):
-        db.users.insert({
-            "name": coordinator.name,
+        db.coordinators.insert({
             "code": coordinator.code,
+            "name": coordinator.name,
+            "email": coordinator.email,
+            "password": generate_password_hash(coordinator.password),
+            "university": coordinator.university,
             "course": coordinator.course,
-            "type": "coordinator"
+            "createdAt": coordinator.createdAt,
+            "type": self.type
         })
 
         return True
 
     def getAllCoordinators(self):
-        coordinators = db.users.find({})
+        coordinators = db.coordinators.find({})
 
         return coordinators
 

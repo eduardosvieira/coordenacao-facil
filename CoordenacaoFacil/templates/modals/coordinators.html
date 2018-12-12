@@ -4,20 +4,41 @@
   <div class="modal-content">
     <span class="modal-title">Novo Coordenador</span>
     <div class="row">
-      <div class="input-text">
-        <label for="coordinator-name">Nome</label>
+      <div class="input-field s12 m12 l12">
         <input name="coordinator-name" id="coordinator-name" type="text">
+        <label for="coordinator-name">Nome Completo</label>
       </div>
 
-      <div class="input-text">
-        <label for="coordinator-code">Código</label>
+      <div class="input-field s12 m12 l12">
+        <input name="coordinator-email" id="coordinator-email" type="email">
+        <label for="coordinator-email">E-mail</label>
+      </div>
+
+
+      <div class="input-field s12 m12 l12">
         <input name="coordinator-code" id="coordinator-code" type="text">
+        <label for="coordinator-code">Matrícula</label>
       </div>
 
-      <div class="input-text">
-        <label for="coordinator-course">Curso</label>
-        <input name="coordinator-course" id="coordinator-course" type="text">
+      <div class="input-field s12 m12 l12">
+        <select name="coordinator-university" id="coordinator-university">
+        </select>
+        <label for="coordinator-university">Universidade</label>
       </div>
+
+      <div class="input-field s12 m12 l12">
+        <select name="coordinator-course" id="coordinator-course">
+        </select>
+        <label for="coordinator-course">Curso</label>
+      </div>
+
+      <div class="input-field s12 m12 l12">
+        <input name="coordinator-password" id="coordinator-password" type="password">
+        <label for="coordinator-password">Senha</label>
+      </div>
+
+      <input name="coordinator-createdAt" id="coordinator-createdAt" type="hidden">
+
     </div>
   </div>
 
