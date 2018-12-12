@@ -23,7 +23,14 @@ $(document).ready(function(){
     $.ajax({
       url: URL + "/app/universities/",
       type: "POST",
-      data: {"name": name, "code": code}
+      data: {"name": name, "code": code},
+      success: function(data) {
+        window.location.replace(URL + "/app/administrator/");
+      },
+      error: function(data) {
+        alert("Houve um problema ao criar uma nova universidade.");
+        window.location.replace(URL + "/app/administrator/");
+      }
     });
   });
 });

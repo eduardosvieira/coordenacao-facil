@@ -53,7 +53,7 @@ def signup():
 def teacher():
     return render_template("teacher.html")
 
-@app.route("/administrator/")
+@app.route("/app/administrator/")
 def admin():
     universities = University().getAllUniversities()
     courses = Course().getAllCourses()

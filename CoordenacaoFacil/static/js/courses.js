@@ -26,7 +26,15 @@ $(document).ready(function(){
     $.ajax({
       url: URL + "/app/courses/",
       type: "POST",
-      data: {"name": name, "code": code, "coordinator": coordinator, "university": university, "createdAt": createdAt}
+      data: {"name": name, "code": code, "coordinator": coordinator, "university": university, "createdAt": createdAt},
+      success: function(data) {
+        console.log("Ol");
+        window.location.replace(URL + "/app/administrator/");
+      },
+      error: function(data) {
+        alert("Houve um problema ao criar uma nova universidade.");
+        window.location.replace(URL + "/app/administrator/");
+      }
     });
   });
 });

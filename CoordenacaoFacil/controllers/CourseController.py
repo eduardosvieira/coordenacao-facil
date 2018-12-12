@@ -17,10 +17,10 @@ def create_course():
 
     course = Course(name=name, code=code, coordinator=coordinator, university=university, createdAt=createdAt)
 
-    course.createCourse(course)
-
-    return "Course created!"
-
+    if course.createCourse(course):
+        return "Course created!", 200
+    else:
+        return "Error", 400
 
 @app.route("/app/courses/", methods=["GET"])
 def get_all_courses():
