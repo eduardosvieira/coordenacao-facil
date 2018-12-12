@@ -33,10 +33,7 @@ def get_all_coordinators():
     coordinators = []
 
     for i in Coordinator().getAllCoordinators():
-        #i["_id"] = str(i["_id"])
-        #coordinators.append(i)
-        print(i)
-    #print(coordinators)
+        coordinators.append({"code": i["code"], "name": i["name"], "coursename": i["course"]["name"]})
     return jsonify(coordinators)
 
 @app.route("/app/coordinators/<coordinator_id>/", methods=["GET"])
