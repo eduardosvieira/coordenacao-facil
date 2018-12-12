@@ -65,7 +65,7 @@ def admin():
 def student():
     return render_template("student.html")
 
-@app.route("/coordinator/")
+@app.route("/app/coordinator/")
 def coordinator():
     teachers = Teacher().getAllTeachers()
     abstracts = Abstract().getAllAbstracts()
