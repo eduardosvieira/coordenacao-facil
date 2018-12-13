@@ -1,2 +1,2 @@
-# coordenacao-facil
-Um sistema para automatização dos processos de aproveitamento de cadeiras, criação de planos de estudo, certificado de monitoria e estágio.
+# Easy Management
+A system for automating the processes of use of chairs, creation of study plans and certificate of monitoring.
