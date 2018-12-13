@@ -16,6 +16,7 @@ from CoordenacaoFacil.controllers import CoordinatorController
 from CoordenacaoFacil.controllers import TeacherController
 from CoordenacaoFacil.controllers import AbstractController
 from CoordenacaoFacil.controllers import StudentController
+from CoordenacaoFacil.controllers import UseOfAbstractsController
 
 from CoordenacaoFacil.models.University import University
 from CoordenacaoFacil.models.Course import Course
@@ -23,6 +24,7 @@ from CoordenacaoFacil.models.Coordinator import Coordinator
 from CoordenacaoFacil.models.Teacher import Teacher
 from CoordenacaoFacil.models.Abstract import Abstract
 from CoordenacaoFacil.models.Student import Student
+from CoordenacaoFacil.models.UseOfAbstracts import UseOfAbstracts
 
 @app.route("/app/")
 def index():
@@ -30,7 +32,9 @@ def index():
         user = Student().getUserByCode(session["code"])
 
         if user["type"] == "student":
-            return render_template("student.html", user=user)
+            useOfAbstracts = UseOfAbstracts().getAllUOA()
+
+            return render_template("student.html", user=user, useOfAbstracts=useOfAbstracts)
         elif user["type"] == "coordinator":
             return render_template("coordinator.html", user=user)
         elif user["type"] == "teacher":
@@ -69,5 +73,7 @@ def student():
 def coordinator():
     teachers = Teacher().getAllTeachers()
     abstracts = Abstract().getAllAbstracts()
+    useOfAbstracts = UseOfAbstracts().getAllUOA()
 
-    return render_template("coordinator.html", teachers=teachers, abstracts=abstracts)
+
+    return render_template("coordinator.html", teachers=teachers, abstracts=abstracts, useOfAbstracts=useOfAbstracts)

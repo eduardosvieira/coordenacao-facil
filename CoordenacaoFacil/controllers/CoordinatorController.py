@@ -16,8 +16,6 @@ def create_coordinator():
     university = University().getUniversityByCode(request.form.get("university"))
     course = Course().getCourseByCode(request.form.get("course"))
 
-    print(email)
-
     coordinator = Coordinator(code=code, name=name, email=email, password=password, createdAt=createdAt, university=university, course=course)
 
     if coordinator.createCoordinator(coordinator):

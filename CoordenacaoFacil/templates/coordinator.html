@@ -6,6 +6,7 @@
 
     <script src="{{ url_for('static', filename='js/abstracts.js') }}"></script>
     <script src="{{ url_for('static', filename='js/teachers.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/coordinators.js') }}"></script>
 
 
   </head>
@@ -98,28 +99,21 @@
             </thead>
 
             <tbody>
-              <tr>
-                <td>Eduardo</td>
-                <td>2016003670</td>
-                <td>BICT000 - Sistemas Operacionais</td>
-                <td>CP000 - Sistemas Operacionais I</td>
-                <td>Em Processamento</td>
-                <td><i class="material-icons red-text">search</i></td>
-                <td><i class="material-icons red-text">thumb_up</i></td>
-                <td><i class="material-icons red-text">thumb_down</i></td>
-                <td><i class="material-icons red-text">send</i></td>
-              </tr>
-              <tr>
-                <td>Eduardo</td>
-                <td>2016003670</td>
-                <td>BICT000 - Sistemas Operacionais</td>
-                <td>CP000 - Sistemas Operacionais I</td>
-                <td>Em Processamento</td>
-                <td><i class="material-icons red-text">search</i></td>
-                <td><i class="material-icons red-text">thumb_up</i></td>
-                <td><i class="material-icons red-text">thumb_down</i></td>
-                <td><i class="material-icons red-text">send</i></td>
-              </tr>
+              {% if useOfAbstracts %}
+                {% for u in useOfAbstracts %}
+                  <tr>
+                    <td>{{ u.student.name }}</td>
+                    <td>{{ u.student.code }}</td>
+                    <td>{{ u.origin.name }}</td>
+                    <td>{{ u.destiny.name }}</td>
+                    <td>{{ u.status }}</td>
+                    <td><i class="material-icons red-text">search</i></td>
+                    <td><i class="material-icons red-text">thumb_up</i></td>
+                    <td><i class="material-icons red-text">thumb_down</i></td>
+                    <td><a onclick="btnSendToTeacher('{{u._id}}');"><i class="material-icons red-text">send</i></a></td>
+                  </tr>
+                {% endfor %}
+              {% endif %}
             </tbody>
           </table>
 

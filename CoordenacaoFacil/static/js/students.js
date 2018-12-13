@@ -5,6 +5,30 @@ var PORT = window.location.port;
 
 var URL = PROTOCOL + "//" + HOSTNAME + ":" + PORT;
 
+function loadAbstracts() {
+  $.ajax({
+      url: URL + "/app/abstracts/",
+      type: "GET",
+      success: function(data) {
+        var origin = $("#uoa-origin");
+        var destiny = $("#uoa-destiny");
+
+        origin.empty();
+        destiny.empty();
+
+        for(index in data) {
+          origin.append($("<option />").text(data[index]["name"]).attr("value", data[index]["code"]));
+          destiny.append($("<option />").text(data[index]["name"]).attr("value", data[index]["code"]));
+
+        }
+        $('select').formSelect();
+      },
+      error: function() {
+        console.log("Houve um problema obter cadeiras.");
+      }
+    });
+}
+
 $(document).ready(function(){
   $('.sidenav').sidenav();
 
@@ -14,6 +38,29 @@ $(document).ready(function(){
 
   $('.fixed-action-btn').floatingActionButton();
 
-  $("#createdAt").val(new Date());
+  $("#uoa-createdAt").val(new Date());
+
+  loadAbstracts();
+
+  $("#btnCreateUOA").click(function(event) {
+    var origin = $("#uoa-origin").val();
+    var destiny = $("#uoa-destiny").val();
+
+    var menu = $('#uoa-menu').prop('files');
+
+    var createdAt = $("#uoa-createdAt").val();
+
+    $.ajax({
+      url : URL + "/app/useOfAbstracts/",
+      type : "POST",
+      data : {"origin": origin, "destiny": destiny, "menu": menu, "createdAt": createdAt},
+      processData: false,  // tell jQuery not to process the data
+      contentType: false,  // tell jQuery not to set contentType
+      success : function(data) {
+        console.log(data);
+      }
+    });
+
+  });
 
 });

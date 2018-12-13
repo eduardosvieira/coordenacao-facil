@@ -5,6 +5,10 @@ var PORT = window.location.port;
 
 var URL = PROTOCOL + "//" + HOSTNAME + ":" + PORT;
 
+function btnSendToTeacher(id) {
+  
+}
+
 function loadCourses() {
   $.ajax({
       url: URL + "/app/courses/",

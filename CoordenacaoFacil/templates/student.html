@@ -100,36 +100,20 @@
             </thead>
 
             <tbody>
-              <tr>
-                <td>Eduardo Silva Vieira</td>
-                <td>2016003670</td>
-                <td>BICT000 - Sistemas Operacionais</td>
-                <td>CP000 - Sistemas Operacionais I</td>
-                <td>Em Processamento</td>
-                <td><i class="material-icons red-text">search</i></td>
-                <td><i class="material-icons red-text">edit</i></td>
-                <td><i class="material-icons red-text">delete</i></td>
-              </tr>
-              <tr>
-                <td>Eduardo Silva Vieira</td>
-                <td>2016003670</td>
-                <td>BICT000 - Sistemas Operacionais</td>
-                <td>CP000 - Sistemas Operacionais I</td>
-                <td>Aprovado</td>
-                <td><i class="material-icons red-text">search</i></td>
-                <td><i class="material-icons red-text">edit</i></td>
-                <td><i class="material-icons red-text">delete</i></td>
-              </tr>
-              <tr>
-                <td>Eduardo Silva Vieira</td>
-                <td>2016003670</td>
-                <td>BICT000 - Sistemas Operacionais</td>
-                <td>CP000 - Sistemas Operacionais I</td>
-                <td>Negado</td>
-                <td><i class="material-icons red-text">search</i></td>
-                <td><i class="material-icons red-text">edit</i></td>
-                <td><i class="material-icons red-text">delete</i></td>
-              </tr>
+              {% if useOfAbstracts %}
+                {% for u in useOfAbstracts %}
+                  <tr>
+                    <td>{{ u.student.name }}</td>
+                    <td>{{ u.student.code }}</td>
+                    <td>{{ u.origin.name }}</td>
+                    <td>{{ u.destiny.name }}</td>
+                    <td>{{ u.status }}</td>
+                    <td><i class="material-icons red-text">search</i></td>
+                    <td><i class="material-icons red-text">edit</i></td>
+                    <td><i class="material-icons red-text">delete</i></td>
+                  </tr>
+                {% endfor %}
+              {% endif %}
             </tbody>
           </table>
 

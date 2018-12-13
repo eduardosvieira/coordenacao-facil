@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, jsonify
 
 from CoordenacaoFacil import app
 
@@ -19,7 +19,15 @@ def create_abstract():
 
 @app.route("/app/abstracts/", methods=["GET"])
 def get_all_abstracts():
-    pass
+    result = Abstract().getAllAbstracts()
+
+    abstracts = []
+
+    for i in result:
+        abstracts.append({"code": i["code"], "name": i["name"]})
+
+    return jsonify(abstracts)
+
 
 @app.route("/app/abstracts/<abstract_id>/", methods=["GET"])
 def get_abstract(abstract_id):

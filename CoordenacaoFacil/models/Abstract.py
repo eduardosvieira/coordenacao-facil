@@ -20,3 +20,8 @@ class Abstract():
         abstracts = db.abstracts.find({})
 
         return abstracts
+
+    def getAbstractByCode(self, code=""):
+        abstract = db.abstracts.find_one({"code": code})
+
+        return abstract
