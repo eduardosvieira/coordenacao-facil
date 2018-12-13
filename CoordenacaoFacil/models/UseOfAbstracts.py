@@ -1,3 +1,4 @@
+from bson.objectid import ObjectId
 from CoordenacaoFacil import db
 
 class UseOfAbstracts():
@@ -33,3 +34,8 @@ class UseOfAbstracts():
         except:
             print("Houve um problema ao retornar uoas.")
             return None
+
+    def getUOAByCode(self, code):
+        uoa = db.useOfAbstracts.find_one({"_id": ObjectId(code)})
+
+        return uoa

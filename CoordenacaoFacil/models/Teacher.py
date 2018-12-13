@@ -32,3 +32,8 @@ class Teacher():
         teachers = db.teachers.find({})
 
         return teachers
+
+    def getTeacherByCode(self, code):
+        teacher = db.teachers.find_one({"code": code})
+
+        return teacher

@@ -110,7 +110,7 @@
                     <td><i class="material-icons red-text">search</i></td>
                     <td><i class="material-icons red-text">thumb_up</i></td>
                     <td><i class="material-icons red-text">thumb_down</i></td>
-                    <td><a onclick="btnSendToTeacher('{{u._id}}');"><i class="material-icons red-text">send</i></a></td>
+                    <td><a data-target="modal-send-uoa-to-teacher" class="modal-trigger" onclick="btnSendToTeacher('{{u._id}}');"><i class="material-icons red-text">send</i></a></td>
                   </tr>
                 {% endfor %}
               {% endif %}
@@ -244,6 +244,7 @@
 
     {% include "modals/teachers.html" %}
     {% include "modals/abstracts.html" %}
+    {% include "modals/SendToTeacher.html" %}
 
   </body>
 </html>

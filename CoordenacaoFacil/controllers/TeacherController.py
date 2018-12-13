@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, jsonify
 
 from CoordenacaoFacil import app
 
@@ -26,7 +26,16 @@ def create_teacher():
 
 @app.route("/app/teachers/", methods=["GET"])
 def get_all_teachers():
-    pass
+    result = Teacher().getAllTeachers()
+
+    teachers = []
+
+    for t in result:
+        teachers.append({
+            "code": t["code"],
+            "name": t["name"]})
+
+    return jsonify(teachers)
 
 @app.route("/app/teachers/<teacher_id>/", methods=["GET"])
 def get_teacher(teacher_id):

@@ -1,0 +1,25 @@
+
+<!-- modal de criação de cursos -->
+<div id="modal-send-uoa-to-teacher" class="modal">
+  <form action="/app/send/uoa/to/teacher/" method="post">
+    <div class="modal-content">
+      <span class="modal-title">Enviar Para Professor</span>
+      <div class="row">
+
+        <input type="hidden" id="uoa-code" name="uoa-code">
+
+        <div class="input-field s12 m12 l12">
+          <select name="teacher" id="teacher">
+          </select>
+          <label for="teacher">Professor</label>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <input type="submit" value="Enviar" class="green btn-flat">
+      <a class="red modal-action modal-close btn-flat">Cancelar</a>
+    </div>
+  </form>
+</div>

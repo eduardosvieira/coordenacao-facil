@@ -6,7 +6,26 @@ var PORT = window.location.port;
 var URL = PROTOCOL + "//" + HOSTNAME + ":" + PORT;
 
 function btnSendToTeacher(id) {
-  
+  $("#uoa-code").val(id);
+}
+
+function loadTeachers() {
+  $.ajax({
+      url: URL + "/app/teachers/",
+      type: "GET",
+      success: function(data) {
+        var teacher = $("#teacher");
+        teacher.empty();
+
+        for(index in data) {
+          teacher.append($("<option />").text(data[index]["name"]).attr("value", data[index]["code"]));
+        }
+        $('select').formSelect();
+      },
+      error: function() {
+        console.log("Houve um problema obter Professores.");
+      }
+    });
 }
 
 function loadCourses() {
@@ -60,8 +79,10 @@ $(document).ready(function(){
 
   $("#coordinator-createdAt").val(new Date());
 
+  loadTeachers();
   loadCourses();
   loadUniversitiesC();
+
 
   $("#btnCreateCoordinator").on("click", function(event){
     var name = $("#coordinator-name").val();

@@ -1,8 +1,20 @@
 from flask import Flask, render_template, session, redirect
 from pymongo import MongoClient
-
+from flask_mail import Mail
 
 app = Flask(__name__)
+
+app.config.update(
+        DEBUG=True,
+        #EMAIL SETTINGS
+        MAIL_SERVER='smtp.gmail.com',
+        MAIL_PORT=465,
+        MAIL_USE_SSL=True,
+        MAIL_USERNAME = 'edusvieirap@gmail.com',
+        MAIL_PASSWORD = '@edusvieirap'
+        )
+
+mail=Mail(app)
 
 app.config["SECRET_KEY"] = "@eduardo"
 
