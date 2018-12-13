@@ -16,15 +16,17 @@ $(document).ready(function(){
 
   $('.fixed-action-btn').floatingActionButton();
 
+  $("#abstract-createdAt").val(new Date());
+
   $("#btnCreateAbstract").on("click", function(event){
     var name = $("#abstract-name").val();
     var code = $("#abstract-code").val();
-    var teacher = $("#abstract-teacher").val();
+    var createdAt = $("#abstract-createdAt").val();
 
     $.ajax({
       url: URL + "/app/abstracts/",
       type: "POST",
-      data: {"name": name, "code": code, "teacher": teacher}
+      data: {"name": name, "code": code, "createdAt": createdAt}
     });
   });
 });

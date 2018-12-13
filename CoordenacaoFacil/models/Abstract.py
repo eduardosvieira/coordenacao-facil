@@ -1,17 +1,17 @@
 from CoordenacaoFacil import db
 
 class Abstract():
-    def __init__(self, code="", name="", createAt=""):
+    def __init__(self, code="", name="", createdAt=""):
         self.code = code
         self.name = name
-        self.createAt = createAt
+        self.createdAt = createdAt
 
 
-    def createAbstract(self, abstract=None):
+    def create(self, abstract=None):
         db.abstracts.insert({
             "code": abstract.code,
             "name": abstract.name,
-            "createAt": abstract.createAt,
+            "createdAt": abstract.createdAt,
         })
 
         return True

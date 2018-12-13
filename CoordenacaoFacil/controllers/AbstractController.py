@@ -8,14 +8,14 @@ from CoordenacaoFacil.models.Abstract import Abstract
 def create_abstract():
     name = request.form.get("name")
     code = request.form.get("code")
-    teacher = request.form.get("teacher") #Depois substituir para objeto Course
+    createdAt = request.form.get("createdAt")
 
-    abstract = Abstract(name=name, code=code, teacher=teacher)
+    abstract = Abstract(name=name, code=code, createdAt=createdAt)
 
-    abstract.createAbstract(abstract)
-
-    return "abstract created!"
-
+    if abstract.create(abstract):
+        return "abstract created!", 200
+    else:
+        return "error", 400
 
 @app.route("/app/abstracts/", methods=["GET"])
 def get_all_abstracts():
