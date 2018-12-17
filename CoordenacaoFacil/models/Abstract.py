@@ -22,7 +22,7 @@ class Abstract():
         return abstracts
 
     def getAllAbstractsByCourse(self, course=""):
-        abstracts = db.abstracts.find({"course": course})
+        abstracts = db.abstracts.find({"course.code": course})
 
         return abstracts
 
