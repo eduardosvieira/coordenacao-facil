@@ -33,6 +33,11 @@ class Teacher():
 
         return teachers
 
+    def getAllTeachersByCourse(self, course=""):
+        teachers = db.teachers.find({"course": course})
+
+        return teachers
+
     def getTeacherByCode(self, code):
         teacher = db.teachers.find_one({"code": code})
 
