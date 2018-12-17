@@ -27,6 +27,11 @@ class Course():
 
         return courses
 
+    def getAllCoursesByUniversity(self, university=""):
+        courses = db.courses.find({"university.code": university})
+
+        return courses
+
     def getCourseByCode(self, code):
         course = db.courses.find_one({"code": code})
 
