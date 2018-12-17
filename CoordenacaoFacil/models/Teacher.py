@@ -34,7 +34,7 @@ class Teacher():
         return teachers
 
     def getAllTeachersByCourse(self, course=""):
-        teachers = db.teachers.find({"course": course})
+        teachers = db.teachers.find({"course.code": course})
 
         return teachers
 
