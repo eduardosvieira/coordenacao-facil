@@ -21,6 +21,11 @@ class Abstract():
 
         return abstracts
 
+    def getAllAbstractsByCourse(self, course=""):
+        abstracts = db.abstracts.find({"course": course})
+
+        return abstracts
+
     def getAbstractByCode(self, code=""):
         abstract = db.abstracts.find_one({"code": code})
 
