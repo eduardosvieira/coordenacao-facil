@@ -72,7 +72,6 @@ $(document).ready(function(){
       type: "POST",
       data: {"name": name, "code": code, "coordinator": coordinator, "university": university, "createdAt": createdAt},
       success: function(data) {
-        console.log("Ol");
         window.location.replace(URL + "/app/administrator/");
       },
       error: function(data) {

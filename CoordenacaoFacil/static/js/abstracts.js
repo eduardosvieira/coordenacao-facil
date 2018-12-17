@@ -26,7 +26,13 @@ $(document).ready(function(){
     $.ajax({
       url: URL + "/app/abstracts/",
       type: "POST",
-      data: {"name": name, "code": code, "createdAt": createdAt}
+      data: {"name": name, "code": code, "createdAt": createdAt},
+      success: function(data) {
+        window.location.replace(URL + "/app/coordinator/");
+      },
+      error: function(data) {
+        alert("Houve um problema ao criar uma nova disciplina.");
+      }
     });
   });
 });
