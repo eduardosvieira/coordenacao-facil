@@ -35,6 +35,15 @@ class UseOfAbstracts():
             print("Houve um problema ao retornar uoas.")
             return None
 
+    def getAllUOAByCourse(self, course=""):
+        try:
+            uoas = db.useOfAbstracts.find({"course.code": course})
+
+            return uoas
+        except:
+            print("Houve um problema ao retornar uoas.")
+            return None
+
     def getUOAByCode(self, code):
         uoa = db.useOfAbstracts.find_one({"_id": ObjectId(code)})
 
