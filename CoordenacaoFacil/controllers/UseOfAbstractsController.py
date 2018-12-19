@@ -1,7 +1,7 @@
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from flask import request, redirect, session
+from flask import request, redirect, session, render_template
 from flask_mail import Message
 from CoordenacaoFacil import app
 
@@ -50,6 +50,6 @@ def create_uoa():
     uoa = UseOfAbstracts(origin=origin, destiny=destiny, createdAt=createdAt, menu=path, student=Student().getUserByCode(session["code"]))
 
     if uoa.create(uoa):
-        return "OK", 200
+        return redirect("/app/")
     else:
-        return "Erro", 400
+        return "Houve um problema ao criar um novo Aproveitamento de Cadeiras.", 400
