@@ -5,6 +5,19 @@ var PORT = window.location.port;
 
 var URL = PROTOCOL + "//" + HOSTNAME + ":" + PORT;
 
+function deleteUOA(id) {
+  $.ajax({
+    url: URL + "/app/useOfAbstracts/" + id + "/",
+    type: "DELETE",
+    success: function(data) {
+      window.location.replace(URL + "/app/");
+    },
+    error: function(data) {
+      alert("Houve um problema ao tentar remover UOA.");
+    }
+  });
+}
+
 function loadAbstracts() {
   $.ajax({
       url: URL + "/app/abstracts/",

@@ -53,3 +53,12 @@ def create_uoa():
         return redirect("/app/")
     else:
         return "Houve um problema ao criar um novo Aproveitamento de Cadeiras.", 400
+
+@app.route("/app/useOfAbstracts/<id>", methods=["DELETE"])
+def delete_uoa(id):
+    uoa = UseOfAbstracts()
+
+    if uoa.delete(id):
+        return "OK", 200
+    else:
+        return "Houve um problema ao deletar um Aproveitamento de Cadeiras.", 400
