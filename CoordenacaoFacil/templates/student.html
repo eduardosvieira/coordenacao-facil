@@ -94,7 +94,6 @@
                   <th>Cadeira Pretendida</th>
                   <th>Status</th>
                   <th>Ver</th>
-                  <th>Editar</th>
                   <th>Remover</th>
               </tr>
             </thead>
@@ -108,8 +107,7 @@
                     <td>{{ u.origin.name }}</td>
                     <td>{{ u.destiny.name }}</td>
                     <td>{{ u.status }}</td>
-                    <td><i class="material-icons red-text">search</i></td>
-                    <td><i class="material-icons red-text">edit</i></td>
+                    <td><a href="" data-target="modal-visualize-useOfAbstract" class="modal-trigger"><i class="material-icons red-text">search</i></a></td>
                     <td><i class="material-icons red-text">delete</i></td>
                   </tr>
                 {% endfor %}
