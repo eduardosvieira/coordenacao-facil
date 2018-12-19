@@ -37,7 +37,7 @@ class UseOfAbstracts():
 
     def getAllUOAByCourse(self, course=""):
         try:
-            uoas = db.useOfAbstracts.find({"course.code": course})
+            uoas = db.useOfAbstracts.find({"student.course.code": course})
 
             return uoas
         except:
