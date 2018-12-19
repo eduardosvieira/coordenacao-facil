@@ -107,7 +107,7 @@
                     <td>{{ u.origin.name }}</td>
                     <td>{{ u.destiny.name }}</td>
                     <td>{{ u.status }}</td>
-                    <td><i class="material-icons red-text">search</i></td>
+                    <td><a onclick="fillModalVisualizeUOA('{{u._id}}');" data-target="modal-visualize-useOfAbstract" class="modal-trigger"><i class="material-icons red-text">search</i></a></td>
                     <td><i class="material-icons red-text">thumb_up</i></td>
                     <td><i class="material-icons red-text">thumb_down</i></td>
                     <td><a data-target="modal-send-uoa-to-teacher" class="modal-trigger" onclick="btnSendToTeacher('{{u._id}}');"><i class="material-icons red-text">send</i></a></td>
@@ -245,6 +245,7 @@
     {% include "modals/teachers.html" %}
     {% include "modals/abstracts.html" %}
     {% include "modals/SendToTeacher.html" %}
+    {% include "modals/useOfAbstracts.html" %}
 
   </body>
 </html>

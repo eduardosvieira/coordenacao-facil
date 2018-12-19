@@ -1,7 +1,8 @@
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from flask import request, redirect, session, render_template, jsonify
+from flask import request, redirect, session, render_template, jsonify, send_from_directory
+
 from flask_mail import Message
 from CoordenacaoFacil import app
 
@@ -16,20 +17,26 @@ from CoordenacaoFacil import mail
 
 @app.route("/app/send/uoa/to/teacher/", methods=["POST"])
 def sendUOAToTeacher():
-    uoa = UseOfAbstracts().getUOAByCode(request.form.get("uoa-code"))
-    teacher = Teacher().getTeacherByCode(request.form.get("teacher"))
+    try:
+        uoa = UseOfAbstracts().getUOAByCode(request.form.get("uoa-code"))
+        teacher = Teacher().getTeacherByCode(request.form.get("teacher"))
 
-    msg = Message(
-      "Titulo",
-      sender='lawsclassroom@gmail.com',
-      recipients=["edusvieirap@gmail.com"])
-    with app.open_resource(uoa["menu"]) as fp:
-        msg.attach("ementa.pdf", "application/pdf", fp.read())
+        msg = Message(
+          "Coordenação Fácil - Pedido de Aproveitamento de Cadeiras",
+          sender='lawsclassroom@gmail.com',
+          recipients=[teacher["email"]])
+        with app.open_resource(app.static_folder + uoa["menu"]) as fp:
+            msg.attach("Ementa.pdf", "application/pdf", fp.read())
 
-        msg.html = "Oi"
-        mail.send(msg)
+            first = "INFORMAÇÕES GERAIS<br>" + "TURMA CURSADA: {0} ({1})<br>".format(uoa["origin"]["name"], uoa["origin"]["code"]) + "TURMA PRETENDIDA: {0} ({1})<br>".format(uoa["destiny"]["name"], uoa["destiny"]["code"])
+            second = "<br>INFORMAÇÕES DE LOGIN<br>" + "CÓDIGO: {0}<br>".format(teacher["code"]) + "SENHA: {}<br>".format(teacher["password"])
+            msg.html = first + second
+            mail.send(msg)
 
-    return "OK"
+        return redirect("/app/coordinator/")
+    except:
+        print("E-mail não enviado.")
+        return "Houve um problema ao encaminhar e-mail.", 400
 
 
 @app.route("/app/useOfAbstracts/", methods=["POST"])
@@ -41,11 +48,11 @@ def create_uoa():
     #recuperando ementa do curso
     menu = request.files["uoa-menu"]
     #generando um token para identificar a ementa na pasta
-    filename = generate_password_hash(menu.filename)
+    filename = generate_password_hash(menu.filename) + ".pdf"
     #salvando a ementa no dataset
     menu.save(os.path.join(UPLOAD_FOLDER, filename))
 
-    path = UPLOAD_FOLDER +"/"+ filename
+    path = "/useOfAbstracts/" + filename
 
     uoa = UseOfAbstracts(origin=origin, destiny=destiny, createdAt=createdAt, menu=path, student=Student().getUserByCode(session["code"]))
 
@@ -77,3 +84,9 @@ def get_uoa(id):
         return jsonify(uoa)
     else:
         return "Houve um problema ao deletar um Aproveitamento de Cadeiras.", 400
+
+
+@app.route("/app/download/<path:path>/", methods=["GET"])
+def download(path):
+    return send_from_directory(app.static_folder + "/", path)
+    #return app.static_folder + "/" + path

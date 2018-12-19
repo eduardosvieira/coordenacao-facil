@@ -19,7 +19,7 @@ class Teacher():
             "code": teacher.code,
             "name": teacher.name,
             "email": teacher.email,
-            "password": generate_password_hash(teacher.password),
+            "password": teacher.password,
             "university": teacher.university,
             "course": teacher.course,
             "createdAt": teacher.createdAt,
