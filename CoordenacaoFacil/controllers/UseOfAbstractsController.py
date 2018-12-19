@@ -54,7 +54,7 @@ def create_uoa():
     else:
         return "Houve um problema ao criar um novo Aproveitamento de Cadeiras.", 400
 
-@app.route("/app/useOfAbstracts/<id>", methods=["DELETE"])
+@app.route("/app/useOfAbstracts/<id>/", methods=["DELETE"])
 def delete_uoa(id):
     uoa = UseOfAbstracts()
 
