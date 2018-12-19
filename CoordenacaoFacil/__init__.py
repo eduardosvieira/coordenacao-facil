@@ -2,7 +2,7 @@ from flask import Flask, render_template, session, redirect
 from pymongo import MongoClient
 from flask_mail import Mail
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='')
 
 app.config.update(
         DEBUG=True,

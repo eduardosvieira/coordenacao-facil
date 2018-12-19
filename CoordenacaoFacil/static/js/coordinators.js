@@ -5,6 +5,25 @@ var PORT = window.location.port;
 
 var URL = PROTOCOL + "//" + HOSTNAME + ":" + PORT;
 
+function fillModalVisualizeUOA(id) {
+  $.ajax({
+    url: URL + "/app/useOfAbstracts/" + id + "/",
+    type: "GET",
+    success: function(data) {
+      $("#visualize-uoa-code").val(data["_id"]);
+      $("#visualize-uoa-origin").val(data["origin"]["name"]);
+      $("#visualize-uoa-destiny").val(data["destiny"]["name"]);
+      $("#visualize-uoa-createdAt").val(data["createdAt"]);
+      $("#visualize-uoa-note").val("");
+      $("#visualize-uoa-menu").attr("href", URL + "/app/download" + data["menu"]);
+      $("#visualize-uoa-status").val(data["status"]);
+    },
+    error: function(data) {
+      alert("Houve um problema ao tentar obter UOA.");
+    }
+  });
+}
+
 function btnSendToTeacher(id) {
   $("#uoa-code").val(id);
 }
