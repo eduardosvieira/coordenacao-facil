@@ -48,3 +48,12 @@ class UseOfAbstracts():
         uoa = db.useOfAbstracts.find_one({"_id": ObjectId(code)})
 
         return uoa
+
+    def delete(self, id):
+        try:
+            db.useOfAbstracts.remove({"_id": ObjectId(id)})
+
+            return True
+        except:
+            print("Houve um problema ao remover UOA.")
+            return False
