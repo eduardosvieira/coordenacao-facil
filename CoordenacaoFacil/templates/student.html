@@ -107,7 +107,7 @@
                     <td>{{ u.origin.name }}</td>
                     <td>{{ u.destiny.name }}</td>
                     <td>{{ u.status }}</td>
-                    <td><a href="" data-target="modal-visualize-useOfAbstract" class="modal-trigger"><i class="material-icons red-text">search</i></a></td>
+                    <td><a onclick="fillModalVisualizeUOA('{{u._id}}');" data-target="modal-visualize-useOfAbstract" class="modal-trigger"><i class="material-icons red-text">search</i></a></td>
                     <td><a onclick="deleteUOA('{{u._id}}');"><i class="material-icons red-text">delete</i></a></td>
                   </tr>
                 {% endfor %}

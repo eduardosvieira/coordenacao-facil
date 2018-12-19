@@ -5,6 +5,23 @@ var PORT = window.location.port;
 
 var URL = PROTOCOL + "//" + HOSTNAME + ":" + PORT;
 
+function fillModalVisualizeUOA(id) {
+  $.ajax({
+    url: URL + "/app/useOfAbstracts/" + id + "/",
+    type: "GET",
+    success: function(data) {
+      console.log(data);
+      /*$("visualize-uoa-origin").val();
+      $("visualize-uoa-destiny").val();
+      $("visualize-uoa-createdAt").val();
+      $("visualize-uoa-note").val();*/
+    },
+    error: function(data) {
+      alert("Houve um problema ao tentar obter UOA.");
+    }
+  });
+}
+
 function deleteUOA(id) {
   $.ajax({
     url: URL + "/app/useOfAbstracts/" + id + "/",
