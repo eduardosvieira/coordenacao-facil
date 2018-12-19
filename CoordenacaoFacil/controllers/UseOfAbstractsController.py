@@ -62,3 +62,17 @@ def delete_uoa(id):
         return "OK", 200
     else:
         return "Houve um problema ao deletar um Aproveitamento de Cadeiras.", 400
+
+
+@app.route("/app/useOfAbstracts/<id>/", methods=["GET"])
+def get_uoa(id):
+    uoa = UseOfAbstracts().getByCode(id)
+
+    if uoa:
+        uoa["_id"] = str(uoa["_id"])
+        uoa["origin"] = {"code": uoa["origin"]["code"]},
+        uoa["destiny"] = {"code": uoa["origin"]["code"]}
+
+        return jsonify(uoa)
+    else:
+        return "Houve um problema ao deletar um Aproveitamento de Cadeiras.", 400
