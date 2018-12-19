@@ -85,7 +85,7 @@ def student():
 def coordinator():
     teachers = Teacher().getAllTeachers()
     abstracts = Abstract().getAllAbstracts()
-    useOfAbstracts = UseOfAbstracts().getAllUOA()
+    useOfAbstracts = UseOfAbstracts().getAllUOAByCourse("CP")
 
 
     return render_template("coordinator.html", teachers=teachers, abstracts=abstracts, useOfAbstracts=useOfAbstracts)
