@@ -10,11 +10,12 @@ function fillModalVisualizeUOA(id) {
     url: URL + "/app/useOfAbstracts/" + id + "/",
     type: "GET",
     success: function(data) {
-      console.log(data);
-      /*$("visualize-uoa-origin").val();
-      $("visualize-uoa-destiny").val();
-      $("visualize-uoa-createdAt").val();
-      $("visualize-uoa-note").val();*/
+      $("#visualize-uoa-origin").val(data["origin"]["name"]);
+      $("#visualize-uoa-destiny").val(data["destiny"]["name"]);
+      $("#visualize-uoa-createdAt").val(data["createdAt"]);
+      $("#visualize-uoa-note").val("");
+      $("#visualize-uoa-menu").attr("href", data["menu"]);
+      $("#visualize-uoa-status").val(data["status"]);
     },
     error: function(data) {
       alert("Houve um problema ao tentar obter UOA.");

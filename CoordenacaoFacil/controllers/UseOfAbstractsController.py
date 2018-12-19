@@ -70,7 +70,7 @@ def get_uoa(id):
 
     if uoa:
         uoa["_id"] = str(uoa["_id"])
-        uoa["origin"] = {"code": uoa["origin"]["code"], "name": uoa["origin"]["name"]},
+        uoa["origin"] = {"code": uoa["origin"]["code"], "name": uoa["origin"]["name"]}
         uoa["destiny"] = {"code": uoa["destiny"]["code"], "name": uoa["destiny"]["name"]}
         uoa["student"] = {}
 
