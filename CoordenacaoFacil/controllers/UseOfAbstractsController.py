@@ -1,7 +1,7 @@
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from flask import request, redirect, session, render_template
+from flask import request, redirect, session, render_template, jsonify
 from flask_mail import Message
 from CoordenacaoFacil import app
 
@@ -70,8 +70,9 @@ def get_uoa(id):
 
     if uoa:
         uoa["_id"] = str(uoa["_id"])
-        uoa["origin"] = {"code": uoa["origin"]["code"]},
-        uoa["destiny"] = {"code": uoa["origin"]["code"]}
+        uoa["origin"] = {"code": uoa["origin"]["code"], "name": uoa["origin"]["name"]},
+        uoa["destiny"] = {"code": uoa["destiny"]["code"], "name": uoa["destiny"]["name"]}
+        uoa["student"] = {}
 
         return jsonify(uoa)
     else:
